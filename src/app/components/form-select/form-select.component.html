@@ -1,0 +1,9 @@
+
+<div>
+  <form [formGroup]="myForm" >
+    <label for="search">
+      <input type="text" id="search" name="search" (input)="sendSearch($event)" [formControlName="myForm.controls"] >
+    </label>
+  </form>
+</div>
+
