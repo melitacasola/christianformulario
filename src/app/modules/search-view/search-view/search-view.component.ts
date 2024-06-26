@@ -9,17 +9,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './search-view.component.html',
   styleUrl: './search-view.component.css'
 })
-export class SearchViewComponent{
+export class SearchViewComponent {
+
+  searchedStudents: IStudent[] = [];
+  // private studentService= inject(ServiceDataService);
+
+  // onSearch(search: string): void {
+  //   this.searchedStudents = this.studentService.getSearchItems(this.searchedStudents, search);
+  // }
+
   private fb = inject(FormBuilder);
 
-  myForm:FormGroup;
+  myForm: FormGroup;
 
-constructor(){
-  this.myForm = this.fb.group({
-    searchString: ["" , Validators.required]
-  })
-
-}
+  constructor() {
+    this.myForm = this.fb.group({
+      searchString: ["", Validators.required]
+    })
+  }
 
 
   students: IStudent[] = [
@@ -55,11 +62,9 @@ constructor(){
     }
   ];
 
-searchedStudents:IStudent[] = [];
 
-searchStudents(search:string){
-  console.log(search);
-  console.log(this.students);
-  this.searchedStudents = ServiceDataService.getSearchItems(this.students, search);
-}
+  searchStudents(search: string) {
+    this.searchedStudents = ServiceDataService.getSearchItems(this.students, search);
+
+  }
 }

@@ -1,6 +1,6 @@
 export interface IStudent {
-    id: number,
-    name: string,
-    email: string,
-    gender: string
+  id: number;
+  name: string;
+  email: string;
+  gender: string;
 }
