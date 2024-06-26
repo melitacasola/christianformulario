@@ -14,13 +14,6 @@ interface IStudent {
 })
 export class ServiceDataService {
 
-  // private students: IStudent[] = [
-  //   { id: 1, name: 'Luca', email: 'luca@gmail.com', gender: 'male' },
-  //   { id: 2, name: 'Lilly', email: 'lilly@gmail.com', gender: 'female' },
-  //   { id: 3, name: 'Anna', email: 'anna@gmail.com', gender: 'female' },
-  //   { id: 4, name: 'John', email: 'john@gmail.com', gender: 'male' },
-  //   { id: 5, name: 'Mary', email: 'mary@gmail.com', gender: 'female' }
-  // ];
 
   static getSearchItems(list:IStudent[],search:string): IStudent[]{
     let students:IStudent[] = [];
@@ -36,17 +29,26 @@ export class ServiceDataService {
       return students;
   }
 
-    //aqui si aqui esta el JSON
 
-  // getStudents(): IStudent[] {
-  //   return this.students;
-  // }
+  //
 
-  // searchStudents(search: string): IStudent[] {
-  //   return this.students.filter(student =>
-  //     student.name.toLowerCase().includes(search.toLowerCase())
-  //   );
-  // }
+  private students: IStudent[] = [
+    { id: 1, name: 'Luca', email: 'luca@gmail.com', gender: 'male' },
+    { id: 2, name: 'Lilly', email: 'lilly@gmail.com', gender: 'female' },
+    { id: 3, name: 'Anna', email: 'anna@gmail.com', gender: 'female' },
+    { id: 4, name: 'John', email: 'john@gmail.com', gender: 'male' },
+    { id: 5, name: 'Mary', email: 'mary@gmail.com', gender: 'female' }
+  ];
+
+  getStudents(): IStudent[] {
+    return this.students;
+  }
+
+  searchStudents(search: string): IStudent[] {
+    return this.students.filter(student =>
+      student.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }
 
 }
 

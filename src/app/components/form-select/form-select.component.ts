@@ -8,25 +8,27 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   templateUrl: './form-select.component.html',
   styleUrl: './form-select.component.css'
 })
-export class FormSelectComponent implements OnInit {
+export class FormSelectComponent{
 
-  @Output() sendStudent: EventEmitter<string> = new EventEmitter();
+  @Output() sendStudent : EventEmitter<string> = new EventEmitter();
   private fb = inject(FormBuilder);
 
-  myForm: FormGroup;
+  myForm:FormGroup;
 
-  constructor() {
-    this.myForm = this.fb.group({
-      searchString: new FormControl<string>("")
-    })
-  }
+constructor(){
+  this.myForm = this.fb.group({
+    searchString: new FormControl<string>("")
+  })
+}
 
-  ngOnInit() {
-    console.log(this.myForm);
-  }
+// ngOnInit(){
+//   console.log(this.myForm);
+// }
 
-  sendSearch() {
-    this.sendStudent.emit(this.myForm.value.searchString);
+  sendSearch(): void {
+    if (this.myForm.valid) {
+      this.sendStudent.emit(this.myForm.value.searchString);
+    }
   }
 
 }

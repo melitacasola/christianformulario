@@ -1,8 +1,16 @@
-
+<!--
 <div>
   <form [formGroup]="myForm" >
     <label for="search">
-      <input type="text" id="search" name="search" (input)="sendSearch()" formControlName="searchString" >
+      <input type="text" id="search" name="search" (input)="sendSearch($event)" >
     </label>
   </form>
 </div>
+
+//anna no tenemos internet ayudanos!!!
+que iria ahi??? -->
+<form [formGroup]="myForm" (ngSubmit)="sendSearch()">
+  <label for="search">Buscar: </label>
+  <input id="search" formControlName="searchString" />
+  <button type="submit">Buscar</button>
+</form>
